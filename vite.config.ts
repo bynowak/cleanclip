@@ -4,5 +4,8 @@ import { resolve } from 'node:path';
 export default defineConfig({
   plugins: [react()],
   base: './',
-  build: { target: 'chrome120', rollupOptions: { input: { popup: resolve('popup.html'), options: resolve('options.html') } } },
+  build: {
+    target: 'chrome120',
+    rollupOptions: { input: { popup: resolve('popup.html'), options: resolve('options.html') } },
+  },
 });
