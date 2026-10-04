@@ -589,3 +589,66 @@ p {
 .popup-app .pane-label small {
   font-size: 8px;
 }
+.popup-app {
+  padding: 16px;
+}
+.popup-app .brand p {
+  display: none;
+}
+.popup-app .app-header {
+  margin-bottom: 12px;
+}
+.popup-app .automatic-panel {
+  padding: 11px 12px;
+  margin-bottom: 14px;
+}
+.popup-app .automatic-panel p {
+  font-size: 9px;
+  line-height: 1.4;
+}
+.popup-app .control-section {
+  margin-bottom: 14px;
+}
+.popup-app .section-label {
+  margin-bottom: 8px;
+}
+.popup-app .helper {
+  display: none;
+}
+.popup-app .preset-group button {
+  padding: 7px 2px;
+}
+.popup-app .select-label select {
+  padding: 8px 10px;
+}
+.popup-app .toggle-line {
+  padding: 8px 0;
+}
+.popup-app .cleaning-details {
+  padding: 10px 0;
+  margin-bottom: 14px;
+}
+.popup-app .preview-tools {
+  margin-bottom: 8px;
+}
+.popup-app .preview-pane textarea {
+  min-height: 82px;
+  padding: 8px;
+  font-size: 10px;
+  line-height: 1.5;
+}
+.popup-app .copy-row {
+  margin-top: 10px;
+}
+.popup-app .app-footer {
+  margin-top: 14px;
+  padding-top: 12px;
+}
+.popup-app .notice:not(:empty) {
+  position: fixed;
+  bottom: 12px;
+  left: 16px;
+  right: 16px;
+  box-shadow: 0 4px 18px #0002;
+  z-index: 10;
+}
