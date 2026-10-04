@@ -30,14 +30,9 @@ try {
       : {}),
     headless: true,
     viewport: { width: 1280, height: 800 },
-    args: [
-      '--enable-unsafe-extension-debugging',
-      ...(process.env.CLEANCLIP_CHROME_CHANNEL
-        ? []
-        : [`--disable-extensions-except=${extensionPath}`, `--load-extension=${extensionPath}`]),
-    ],
+    args: ['--enable-unsafe-extension-debugging'],
   });
-  if (process.env.CLEANCLIP_CHROME_CHANNEL) {
+  {
     const session = await context.browser().newBrowserCDPSession();
     const installed = await session.send('Extensions.loadUnpacked', { path: extensionPath });
     console.log('Loaded unpacked extension:', installed.id);
