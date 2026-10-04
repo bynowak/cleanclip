@@ -1,0 +1,8 @@
+pnpm-lock.yaml
+dist
+artifacts
+node_modules
+test-results
+docs/screenshots/*.png
+public/icons/*.png
+docs/store/*.png
