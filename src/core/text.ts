@@ -2,7 +2,9 @@ import type { CleanOptions } from './types';
 const TRACKING =
   /^(?:utm_.+|fbclid|gclid|dclid|msclkid|mc_cid|mc_eid|igshid|_hsenc|_hsmi|mkt_tok|vero_id)$/i;
 export function cleanUrl(value: string, removeTracking: boolean, baseUrl?: string): string | null {
-  const stripped = value.replace(/[\u0000-\u0020\u007f]/g, '').trim();
+  const stripped = Array.from(value)
+    .filter((character) => character.charCodeAt(0) > 32 && character.charCodeAt(0) !== 127)
+    .join('');
   try {
     const url = new URL(stripped, baseUrl);
     if (!['http:', 'https:', 'mailto:', 'tel:'].includes(url.protocol)) return null;
