@@ -4,6 +4,19 @@ import { transform, PRESETS, cleanUrl, MAX_INPUT_LENGTH } from '../src/core';
 const fixture = (name: string): string =>
   readFileSync(new URL(`./fixtures/${name}.html`, import.meta.url), 'utf8');
 describe('prose cleaning', () => {
+  it('preserves leading indentation in the Developer preset', () => {
+    expect(transform({ text: '  const value = 1;\n\n\n  next();\n' }, PRESETS.Developer).text).toBe(
+      '  const value = 1;\n\n\n  next();\n',
+    );
+  });
+  it('does not confuse literal private-use text with protected code tokens', () => {
+    const text = '\uE000PLAINCODE0\uE001 before `x` after';
+    expect(transform({ text }, PRESETS.Plain).text).toBe(text);
+    expect(
+      transform({ text: '', html: '<p>\uE000CLEANCLIP0\uE001</p><pre>x</pre>' }, PRESETS.Plain)
+        .text,
+    ).toBe('\uE000CLEANCLIP0\uE001\n\nx');
+  });
   it('normalizes Unicode spaces, line endings and repeated blank lines', () => {
     expect(
       transform({ text: '  First\u00a0  line\r\n\r\n\r\nSecond\tline  ' }, PRESETS.Plain).text,
