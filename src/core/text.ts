@@ -43,7 +43,7 @@ export function normalizeLines(value: string, options: CleanOptions): string {
   let text = value;
   if (options.normalizeWhitespace) text = text.replace(/[ \t]+$/gm, '').replace(/\n{3,}/g, '\n\n');
   if (!options.preserveParagraphs) text = text.replace(/\n{2,}/g, '\n');
-  return text.trim();
+  return options.normalizeWhitespace ? text.trim() : text;
 }
 export function escapeHtml(value: string): string {
   return value

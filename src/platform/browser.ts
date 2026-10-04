@@ -80,6 +80,7 @@ export async function getPageSelection(): Promise<ClipInput> {
       throw error;
     throw new Error(
       'This page cannot be accessed. Browser pages, the extension store and some viewers are restricted. Paste the text instead.',
+      { cause: error },
     );
   }
 }

@@ -48,22 +48,26 @@ const markdownEscape = (value: string): string =>
 
 class Renderer {
   private codeBlocks: string[] = [];
+  private tokenBase = '\uE000CLEANCLIP';
   constructor(
     private options: CleanOptions,
     private mode: Mode,
     private baseUrl: string | undefined,
     private warnings: Set<string>,
-  ) {}
+    source: string,
+  ) {
+    while (source.includes(this.tokenBase)) this.tokenBase += '_';
+  }
   private preserveCode(value: string): string {
-    const token = `\uE000CLEANCLIP${this.codeBlocks.length}\uE001`;
+    const token = `${this.tokenBase}${this.codeBlocks.length}\uE001`;
     this.codeBlocks.push(value);
     return token;
   }
   finish(value: string): string {
     if (this.mode === 'rich') return value;
-    let text = normalizeLines(value, this.options);
+    let text = normalizeLines(value, this.options).trim();
     this.codeBlocks.forEach((code, index) => {
-      text = text.replace(`\uE000CLEANCLIP${index}\uE001`, code);
+      text = text.replace(`${this.tokenBase}${index}\uE001`, code);
     });
     return text;
   }
@@ -195,7 +199,7 @@ class Renderer {
           const text = children(item)
             .map((child) => this.render(child, depth + 1))
             .join('');
-          return this.options.preserveLists ? `<li>${text}</li>` : `<p>${text}</p>`;
+          return this.options.preserveLists ? `<li>${text}</li>` : `${text}<br>`;
         })
         .join('');
       return this.options.preserveLists
@@ -282,11 +286,13 @@ function cleanPlainSource(source: string, options: CleanOptions): string {
   // Fenced and inline code bypass prose edits; whitespace can be syntax in code.
   const segments = source.split(/(`{3,}[^\n]*\n[\s\S]*?\n`{3,}|`+[^`\n]+`+)/g);
   const protectedCode: string[] = [];
+  let tokenBase = '\uE000PLAINCODE';
+  while (source.includes(tokenBase)) tokenBase += '_';
   const result = segments
     .map((segment, index) => {
       if (index % 2 === 1) {
         protectedCode.push(cleanText(segment, options, true));
-        return `\uE000PLAINCODE${protectedCode.length - 1}\uE001`;
+        return `${tokenBase}${protectedCode.length - 1}\uE001`;
       }
       let text = cleanMarkdownLinks(cleanText(segment, options), options);
       text = text.replace(/https?:\/\/[^\s<>]+/g, (original) => {
@@ -309,7 +315,7 @@ function cleanPlainSource(source: string, options: CleanOptions): string {
     .join('');
   let text = normalizeLines(result, options);
   protectedCode.forEach((code, index) => {
-    text = text.replace(`\uE000PLAINCODE${index}\uE001`, code);
+    text = text.replace(`${tokenBase}${index}\uE001`, code);
   });
   return text;
 }
@@ -321,15 +327,17 @@ export function transform(input: ClipInput, options: CleanOptions): CleanResult 
   if (input.html?.trim()) {
     const tree = parseFragment(input.html);
     validateTree(tree);
+    const source = rawText(tree);
     const textRenderer = new Renderer(
       options,
       options.format === 'markdown' ? 'markdown' : 'plain',
       input.baseUrl,
       warnings,
+      source,
     );
     const text = textRenderer.finish(textRenderer.render(tree));
     if (text || !input.text.trim()) {
-      const rich = new Renderer(options, 'rich', input.baseUrl, warnings);
+      const rich = new Renderer(options, 'rich', input.baseUrl, warnings, source);
       return {
         text,
         html: options.format === 'rich' ? rich.render(tree) : null,
