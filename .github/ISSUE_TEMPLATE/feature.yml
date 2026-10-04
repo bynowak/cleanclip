@@ -1,0 +1,14 @@
+name: Feature request
+description: Propose a concrete clipboard workflow
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What workflow is difficult today?
+    validations:
+      required: true
+  - type: textarea
+    id: example
+    attributes:
+      label: Example input and desired result
+      description: Use synthetic data, not personal clipboard contents.

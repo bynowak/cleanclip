@@ -1,0 +1,23 @@
+name: Clipboard transformation bug
+description: Report an actual input/output failure
+labels: [bug]
+body:
+  - type: textarea
+    id: fixture
+    attributes:
+      label: Minimal non-sensitive input
+      description: Paste a synthetic text/HTML example. Never include private documents or credentials.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Actual and expected output
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Browser, CleanClip version, preset and custom toggles
+    validations:
+      required: true
