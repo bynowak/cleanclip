@@ -12,6 +12,14 @@ export interface CleanOptions {
   smartQuotes: boolean;
   removeCitations: boolean;
 }
-export interface ClipInput { text: string; html?: string; baseUrl?: string }
-export interface CleanResult { text: string; html: string | null; warnings: string[] }
+export interface ClipInput {
+  text: string;
+  html?: string;
+  baseUrl?: string;
+}
+export interface CleanResult {
+  text: string;
+  html: string | null;
+  warnings: string[];
+}
 export const MAX_INPUT_LENGTH = 500_000;
