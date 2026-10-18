@@ -19,6 +19,8 @@ The screenshot uses the built-in sample, not real browsing data. [Settings scree
 
 The ZIP requires manual installation in Chrome or Edge. Store publication is pending. CleanClip is free and open source; it does not require a paid account.
 
+**Editing your own website copy?** [Use the free portfolio-copy worksheet](docs/guides/freelance-portfolio-copy-check.md), then [read the free homepage and social-post samples](https://github.com/bynowak/sitecheck/blob/main/docs/guides/freelance-copy-sampler.md). Optional editable copy kits are linked in the worksheet.
+
 ## What it does
 
 - Plain text, Markdown and rich-text output with a simultaneous input/output preview.
