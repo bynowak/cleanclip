@@ -13,6 +13,12 @@ CleanClip is a local-only browser extension that turns website selections into r
 
 The screenshot uses the built-in sample, not real browsing data. [Settings screenshot](docs/screenshots/settings.png) · [capture instructions](docs/screenshots/README.md).
 
+## Get CleanClip
+
+[Download the Chromium ZIP](https://github.com/bynowak/cleanclip/releases/download/v1.0.0/cleanclip-1.0.0-chromium.zip) · [Installation steps](#install-locally) · [Free Markdown workflow guide](docs/guides/clean-copy-workflow.md)
+
+The ZIP requires manual installation in Chrome or Edge. Store publication is pending. CleanClip is free and open source; it does not require a paid account.
+
 ## What it does
 
 - Plain text, Markdown and rich-text output with a simultaneous input/output preview.
@@ -155,3 +161,4 @@ The MIT source license does not imply store approval. Chrome Web Store and Edge 
 ## License
 
 [MIT](LICENSE) · Copyright 2026 Mateusz Nowak. React, parse5 and other dependencies retain their respective licenses.
+
