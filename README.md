@@ -161,4 +161,3 @@ The MIT source license does not imply store approval. Chrome Web Store and Edge 
 ## License
 
 [MIT](LICENSE) · Copyright 2026 Mateusz Nowak. React, parse5 and other dependencies retain their respective licenses.
-
