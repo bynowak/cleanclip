@@ -57,6 +57,8 @@ The extension processes supplied content locally, makes no network calls and sto
 
 Formatting and messaging are different jobs. Use the free [10-minute landing page clarity check](https://github.com/bynowak/sitecheck/blob/main/docs/guides/clear-copy-checklist.md) to review your headline, offer and next step.
 
-For feedback on one page and five social posts, ByNowak's existing **$120 Mini Audit** includes tone issues, rewritten examples and practical recommendations. English and Polish. [View services](https://bynowak.com/services?utm_source=github&utm_medium=referral&utm_campaign=cleanclip_workflow&utm_content=guide) or [inquire by email](mailto:business@bynowak.com?subject=Mini%20Audit%20enquiry).
+For feedback on one page and five social posts, ByNowak's existing **$120 Mini Audit** includes tone issues, rewritten examples and practical recommendations. English and Polish. [Get the Mini Audit through Stripe](https://buy.stripe.com/dRm8wPcLo6HT9pKh1c5gc00?client_reference_id=github_cleanclip_workflow_audit) or [inquire by email](mailto:business@bynowak.com?subject=Mini%20Audit%20enquiry).
+
+Prefer an editable starting point? Try the [free portfolio-copy worksheet](freelance-portfolio-copy-check.md) or [read the free samples from ByNowak's website and content kits](https://github.com/bynowak/sitecheck/blob/main/docs/guides/freelance-copy-sampler.md). The optional full kits are one-time purchases with ZIP delivery by email within 24 hours of confirmed payment.
 
 ByNowak / Mateusz Nowak. October 18, 2026. An original educational guide, not a client case study.
