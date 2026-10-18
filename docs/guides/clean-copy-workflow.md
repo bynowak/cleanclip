@@ -18,12 +18,12 @@ The default shortcut for cleaning a selection is `Alt+Shift+C`. Your browser or 
 
 ## Choose the right output
 
-| Task | Starting preset | Review before using |
-| --- | --- | --- |
-| Research notes | Markdown | Headings, source links and quotation boundaries |
-| Prose draft | Writing | Quotes, punctuation and link labels |
-| Documentation | Developer | Code indentation, fences and table alignment |
-| Readable plain text | Plain | Paragraph and list structure |
+| Task                | Starting preset | Review before using                             |
+| ------------------- | --------------- | ----------------------------------------------- |
+| Research notes      | Markdown        | Headings, source links and quotation boundaries |
+| Prose draft         | Writing         | Quotes, punctuation and link labels             |
+| Documentation       | Developer       | Code indentation, fences and table alignment    |
+| Readable plain text | Plain           | Paragraph and list structure                    |
 
 Keep the source URL in research notes. Cleaning text does not provide permission to reuse someone else's writing. Quote and attribute sources appropriately.
 
